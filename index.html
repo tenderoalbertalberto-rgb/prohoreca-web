@@ -232,9 +232,10 @@
             overflow: hidden;
         }
 
-        .hero-image svg {
+        .hero-image img {
             width: 100%;
             height: 100%;
+            object-fit: cover;
         }
 
         /* Sección Filosofía */
@@ -323,9 +324,10 @@
             overflow: hidden;
         }
 
-        .categoria-img svg {
+        .categoria-img img {
             width: 100%;
             height: 100%;
+            object-fit: cover;
         }
 
         .categoria-card h3 {
@@ -373,9 +375,10 @@
             overflow: hidden;
         }
 
-        .producto-img svg {
+        .producto-img img {
             width: 100%;
             height: 100%;
+            object-fit: cover;
         }
 
         .producto-badge {
@@ -638,15 +641,7 @@
             <a href="#productos" class="hero-cta">Quiero uno</a>
         </div>
         <div class="hero-image">
-            <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-                <rect width="800" height="600" fill="#2c3e50"/>
-                <circle cx="400" cy="250" r="80" fill="#34495e"/>
-                <rect x="350" y="300" width="100" height="150" fill="#34495e" rx="10"/>
-                <rect x="370" y="280" width="60" height="30" fill="#7f8c8d"/>
-                <circle cx="400" cy="200" r="15" fill="#e74c3c"/>
-                <rect x="200" y="400" width="400" height="20" fill="#34495e" rx="5"/>
-                <text x="400" y="520" font-family="Arial" font-size="24" fill="#ecf0f1" text-anchor="middle" font-weight="bold">Cocina Profesional</text>
-            </svg>
+            <img src="https://picsum.photos/seed/cocina/800/600" alt="Cocina Profesional">
         </div>
     </section>
 
@@ -670,52 +665,28 @@
         <div class="categorias-grid">
             <div class="categoria-card" onclick="filtrarCategoria('maquinaria')">
                 <div class="categoria-img">
-                    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="400" height="400" fill="#34495e"/>
-                        <rect x="100" y="150" width="200" height="150" fill="#2c3e50" rx="10"/>
-                        <circle cx="200" cy="200" r="40" fill="#7f8c8d"/>
-                        <rect x="180" y="100" width="40" height="60" fill="#95a5a6"/>
-                        <text x="200" y="350" font-family="Arial" font-size="20" fill="#ecf0f1" text-anchor="middle" font-weight="bold">Maquinaria</text>
-                    </svg>
+                    <img src="https://picsum.photos/seed/maquinaria/400/400" alt="Maquinaria">
                 </div>
                 <h3>Maquinaria</h3>
                 <p>Equipamiento profesional de última generación</p>
             </div>
             <div class="categoria-card" onclick="filtrarCategoria('utensilios')">
                 <div class="categoria-img">
-                    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="400" height="400" fill="#34495e"/>
-                        <path d="M 150 100 L 200 300 L 250 100 Z" fill="#95a5a6"/>
-                        <rect x="180" y="80" width="40" height="80" fill="#7f8c8d" rx="5"/>
-                        <circle cx="200" cy="120" r="15" fill="#2c3e50"/>
-                        <text x="200" y="350" font-family="Arial" font-size="20" fill="#ecf0f1" text-anchor="middle" font-weight="bold">Utensilios</text>
-                    </svg>
+                    <img src="https://picsum.photos/seed/utensilios/400/400" alt="Utensilios">
                 </div>
                 <h3>Utensilios</h3>
                 <p>Herramientas de precisión para chefs</p>
             </div>
             <div class="categoria-card" onclick="filtrarCategoria('ingredientes')">
                 <div class="categoria-img">
-                    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="400" height="400" fill="#34495e"/>
-                        <circle cx="150" cy="200" r="50" fill="#e74c3c"/>
-                        <circle cx="250" cy="200" r="50" fill="#f39c12"/>
-                        <circle cx="200" cy="250" r="50" fill="#27ae60"/>
-                        <text x="200" y="350" font-family="Arial" font-size="20" fill="#ecf0f1" text-anchor="middle" font-weight="bold">Ingredientes</text>
-                    </svg>
+                    <img src="https://picsum.photos/seed/ingredientes/400/400" alt="Ingredientes">
                 </div>
                 <h3>Ingredientes</h3>
                 <p>Productos gourmet seleccionados</p>
             </div>
             <div class="categoria-card" onclick="filtrarCategoria('packaging')">
                 <div class="categoria-img">
-                    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="400" height="400" fill="#34495e"/>
-                        <rect x="120" y="150" width="160" height="120" fill="#95a5a6" rx="5"/>
-                        <rect x="140" y="130" width="120" height="30" fill="#7f8c8d" rx="3"/>
-                        <line x1="200" y1="150" x2="200" y2="270" stroke="#2c3e50" stroke-width="3"/>
-                        <text x="200" y="350" font-family="Arial" font-size="20" fill="#ecf0f1" text-anchor="middle" font-weight="bold">Packaging</text>
-                    </svg>
+                    <img src="https://picsum.photos/seed/packaging/400/400" alt="Packaging">
                 </div>
                 <h3>Packaging</h3>
                 <p>Soluciones de envasado profesional</p>
@@ -734,13 +705,7 @@
             <div class="producto-card" data-categoria="maquinaria" data-nombre="Sous Vide Professional SV-2000">
                 <div class="producto-img">
                     <span class="producto-badge">Nuevo</span>
-                    <svg viewBox="0 0 400 450" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="400" height="450" fill="#34495e"/>
-                        <rect x="150" y="100" width="100" height="200" fill="#2c3e50" rx="10"/>
-                        <circle cx="200" cy="180" r="30" fill="#7f8c8d"/>
-                        <rect x="170" y="250" width="60" height="20" fill="#95a5a6"/>
-                        <text x="200" y="380" font-family="Arial" font-size="18" fill="#ecf0f1" text-anchor="middle" font-weight="bold">Sous Vide</text>
-                    </svg>
+                    <img src="https://picsum.photos/seed/sousvide/400/450" alt="Sous Vide">
                 </div>
                 <div class="producto-categoria">Maquinaria</div>
                 <h3 class="producto-nombre">Sous Vide Professional SV-2000</h3>
@@ -752,13 +717,7 @@
             <div class="producto-card" data-categoria="utensilios" data-nombre="Set Cuchillos Japoneses Premium">
                 <div class="producto-img">
                     <span class="producto-badge">Top Ventas</span>
-                    <svg viewBox="0 0 400 450" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="400" height="450" fill="#34495e"/>
-                        <path d="M 150 150 L 200 300 L 250 150 Z" fill="#95a5a6"/>
-                        <rect x="180" y="130" width="40" height="80" fill="#7f8c8d" rx="5"/>
-                        <circle cx="200" cy="170" r="15" fill="#2c3e50"/>
-                        <text x="200" y="380" font-family="Arial" font-size="18" fill="#ecf0f1" text-anchor="middle" font-weight="bold">Cuchillos</text>
-                    </svg>
+                    <img src="https://picsum.photos/seed/cuchillos/400/450" alt="Cuchillos">
                 </div>
                 <div class="producto-categoria">Utensilios</div>
                 <h3 class="producto-nombre">Set Cuchillos Japoneses Premium</h3>
@@ -769,13 +728,7 @@
             <!-- Producto 3 -->
             <div class="producto-card" data-categoria="packaging" data-nombre="Packaging Biodegradable 500ml">
                 <div class="producto-img">
-                    <svg viewBox="0 0 400 450" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="400" height="450" fill="#34495e"/>
-                        <rect x="120" y="150" width="160" height="120" fill="#95a5a6" rx="5"/>
-                        <rect x="140" y="130" width="120" height="30" fill="#7f8c8d" rx="3"/>
-                        <line x1="200" y1="150" x2="200" y2="270" stroke="#2c3e50" stroke-width="3"/>
-                        <text x="200" y="380" font-family="Arial" font-size="18" fill="#ecf0f1" text-anchor="middle" font-weight="bold">Packaging</text>
-                    </svg>
+                    <img src="https://picsum.photos/seed/packagingprod/400/450" alt="Packaging">
                 </div>
                 <div class="producto-categoria">Packaging</div>
                 <h3 class="producto-nombre">Packaging Biodegradable 500ml</h3>
@@ -787,13 +740,7 @@
             <div class="producto-card" data-categoria="ingredientes" data-nombre="Aceite de Oliva Virgen Extra 5L">
                 <div class="producto-img">
                     <span class="producto-badge">Top Ventas</span>
-                    <svg viewBox="0 0 400 450" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="400" height="450" fill="#34495e"/>
-                        <ellipse cx="200" cy="220" rx="60" ry="80" fill="#f39c12"/>
-                        <rect x="185" y="140" width="30" height="40" fill="#7f8c8d"/>
-                        <circle cx="200" cy="130" r="15" fill="#95a5a6"/>
-                        <text x="200" y="380" font-family="Arial" font-size="18" fill="#ecf0f1" text-anchor="middle" font-weight="bold">Aceite Oliva</text>
-                    </svg>
+                    <img src="https://picsum.photos/seed/aceite/400/450" alt="Aceite de Oliva">
                 </div>
                 <div class="producto-categoria">Ingredientes</div>
                 <h3 class="producto-nombre">Aceite de Oliva Virgen Extra 5L</h3>
@@ -804,13 +751,7 @@
             <!-- Producto 5 -->
             <div class="producto-card" data-categoria="maquinaria" data-nombre="Horno Combinado Digital 6 GN">
                 <div class="producto-img">
-                    <svg viewBox="0 0 400 450" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="400" height="450" fill="#34495e"/>
-                        <rect x="100" y="150" width="200" height="150" fill="#2c3e50" rx="10"/>
-                        <circle cx="200" cy="200" r="40" fill="#7f8c8d"/>
-                        <rect x="180" y="100" width="40" height="60" fill="#95a5a6"/>
-                        <text x="200" y="380" font-family="Arial" font-size="18" fill="#ecf0f1" text-anchor="middle" font-weight="bold">Horno</text>
-                    </svg>
+                    <img src="https://picsum.photos/seed/horno/400/450" alt="Horno">
                 </div>
                 <div class="producto-categoria">Maquinaria</div>
                 <h3 class="producto-nombre">Horno Combinado Digital 6 GN</h3>
@@ -821,13 +762,7 @@
             <!-- Producto 6 -->
             <div class="producto-card" data-categoria="utensilios" data-nombre="Báscula Digital Precisión 0.1g">
                 <div class="producto-img">
-                    <svg viewBox="0 0 400 450" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="400" height="450" fill="#34495e"/>
-                        <rect x="130" y="200" width="140" height="80" fill="#95a5a6" rx="5"/>
-                        <rect x="150" y="180" width="100" height="30" fill="#7f8c8d"/>
-                        <circle cx="200" cy="240" r="20" fill="#2c3e50"/>
-                        <text x="200" y="380" font-family="Arial" font-size="18" fill="#ecf0f1" text-anchor="middle" font-weight="bold">Báscula</text>
-                    </svg>
+                    <img src="https://picsum.photos/seed/bascula/400/450" alt="Báscula">
                 </div>
                 <div class="producto-categoria">Utensilios</div>
                 <h3 class="producto-nombre">Báscula Digital Precisión 0.1g</h3>
