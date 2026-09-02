@@ -228,9 +228,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 8rem;
             position: relative;
             overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* Sección Filosofía */
@@ -315,8 +320,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 5rem;
             margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .categoria-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .categoria-card h3 {
@@ -359,9 +370,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 6rem;
             margin-bottom: 1.5rem;
             position: relative;
+            overflow: hidden;
+        }
+
+        .producto-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .producto-badge {
@@ -376,6 +393,7 @@
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
+            z-index: 10;
         }
 
         .producto-categoria {
@@ -609,7 +627,7 @@
                 <a href="#">Contacto</a>
             </nav>
             <div class="cart-icon" onclick="verCarrito()">
-                🛒
+                
                 <span class="cart-count" id="cartCount">0</span>
             </div>
         </div>
@@ -624,7 +642,7 @@
             <a href="#productos" class="hero-cta">Quiero uno</a>
         </div>
         <div class="hero-image">
-            🍳
+            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae8d?w=800&h=600&fit=crop" alt="Cocina profesional">
         </div>
     </section>
 
@@ -647,22 +665,30 @@
         </div>
         <div class="categorias-grid">
             <div class="categoria-card" onclick="filtrarCategoria('maquinaria')">
-                <div class="categoria-img"></div>
+                <div class="categoria-img">
+                    <img src="https://images.unsplash.com/photo-1556910103-1c02745aae8d?w=400&h=400&fit=crop" alt="Maquinaria">
+                </div>
                 <h3>Maquinaria</h3>
                 <p>Equipamiento profesional de última generación</p>
             </div>
             <div class="categoria-card" onclick="filtrarCategoria('utensilios')">
-                <div class="categoria-img">🔪</div>
+                <div class="categoria-img">
+                    <img src="https://images.unsplash.com/photo-1593618998940-488998687c8d?w=400&h=400&fit=crop" alt="Utensilios">
+                </div>
                 <h3>Utensilios</h3>
                 <p>Herramientas de precisión para chefs</p>
             </div>
             <div class="categoria-card" onclick="filtrarCategoria('ingredientes')">
-                <div class="categoria-img">🥘</div>
+                <div class="categoria-img">
+                    <img src="https://images.unsplash.com/photo-1506368249639-73a05d6f6488?w=400&h=400&fit=crop" alt="Ingredientes">
+                </div>
                 <h3>Ingredientes</h3>
                 <p>Productos gourmet seleccionados</p>
             </div>
             <div class="categoria-card" onclick="filtrarCategoria('packaging')">
-                <div class="categoria-img">📦</div>
+                <div class="categoria-img">
+                    <img src="https://images.unsplash.com/photo-1605648916319-cf082f752411?w=400&h=400&fit=crop" alt="Packaging">
+                </div>
                 <h3>Packaging</h3>
                 <p>Soluciones de envasado profesional</p>
             </div>
@@ -680,7 +706,7 @@
             <div class="producto-card" data-categoria="maquinaria" data-nombre="Sous Vide Professional SV-2000">
                 <div class="producto-img">
                     <span class="producto-badge">Nuevo</span>
-                    🍳
+                    <img src="https://images.unsplash.com/photo-1584269600519-112d071b35e6?w=400&h=450&fit=crop" alt="Sous Vide">
                 </div>
                 <div class="producto-categoria">Maquinaria</div>
                 <h3 class="producto-nombre">Sous Vide Professional SV-2000</h3>
@@ -692,7 +718,7 @@
             <div class="producto-card" data-categoria="utensilios" data-nombre="Set Cuchillos Japoneses Premium">
                 <div class="producto-img">
                     <span class="producto-badge">Top Ventas</span>
-                    🔪
+                    <img src="https://images.unsplash.com/photo-1593618998940-488998687c8d?w=400&h=450&fit=crop" alt="Cuchillos">
                 </div>
                 <div class="producto-categoria">Utensilios</div>
                 <h3 class="producto-nombre">Set Cuchillos Japoneses Premium</h3>
@@ -703,7 +729,7 @@
             <!-- Producto 3 -->
             <div class="producto-card" data-categoria="packaging" data-nombre="Packaging Biodegradable 500ml">
                 <div class="producto-img">
-                    📦
+                    <img src="https://images.unsplash.com/photo-1605648916319-cf082f752411?w=400&h=450&fit=crop" alt="Packaging">
                 </div>
                 <div class="producto-categoria">Packaging</div>
                 <h3 class="producto-nombre">Packaging Biodegradable 500ml</h3>
@@ -715,7 +741,7 @@
             <div class="producto-card" data-categoria="ingredientes" data-nombre="Aceite de Oliva Virgen Extra 5L">
                 <div class="producto-img">
                     <span class="producto-badge">Top Ventas</span>
-                    🫒
+                    <img src="https://images.unsplash.com/photo-1474979266404-7cadd259c308?w=400&h=450&fit=crop" alt="Aceite de Oliva">
                 </div>
                 <div class="producto-categoria">Ingredientes</div>
                 <h3 class="producto-nombre">Aceite de Oliva Virgen Extra 5L</h3>
@@ -726,7 +752,7 @@
             <!-- Producto 5 -->
             <div class="producto-card" data-categoria="maquinaria" data-nombre="Horno Combinado Digital 6 GN">
                 <div class="producto-img">
-                    🔥
+                    <img src="https://images.unsplash.com/photo-1556910103-1c02745aae8d?w=400&h=450&fit=crop" alt="Horno">
                 </div>
                 <div class="producto-categoria">Maquinaria</div>
                 <h3 class="producto-nombre">Horno Combinado Digital 6 GN</h3>
@@ -737,7 +763,7 @@
             <!-- Producto 6 -->
             <div class="producto-card" data-categoria="utensilios" data-nombre="Báscula Digital Precisión 0.1g">
                 <div class="producto-img">
-                    ⚖️
+                    <img src="https://images.unsplash.com/photo-1576020799627-aeac74d58064?w=400&h=450&fit=crop" alt="Báscula">
                 </div>
                 <div class="producto-categoria">Utensilios</div>
                 <h3 class="producto-nombre">Báscula Digital Precisión 0.1g</h3>
