@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProHoreca - Proveedor Único Profesional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --negro: #1a1a1a;
+            --blanco: #ffffff;
+            --gris-claro: #f5f5f5;
+            --gris-medio: #e0e0e0;
+            --gris-texto: #666666;
+            --acento: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: var(--negro);
+            background-color: var(--blanco);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Barra Superior */
+        .top-bar {
+            background-color: var(--negro);
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .top-bar-logo {
+            color: var(--blanco);
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+            cursor: pointer;
+        }
+
+        .top-bar-logo:hover {
+            opacity: 1;
+        }
+
+        .top-bar-logo.active {
+            border: 1px solid var(--blanco);
+            padding: 0.3rem 0.8rem;
+        }
+
+        .lang-selector {
+            position: absolute;
+            right: 2rem;
+            color: var(--blanco);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Header Principal */
+        header {
+            background-color: var(--blanco);
+            border-bottom: 1px solid var(--gris-medio);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--negro);
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 3rem;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--gris-medio);
+            border-radius: 4px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-bar input:focus {
+            border-color: var(--negro);
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--negro);
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.6;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.3rem;
+            margin-left: 1rem;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background-color: var(--negro);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            min-height: 600px;
+        }
+
+        .hero-content {
+            padding-right: 2rem;
+        }
+
+        .hero-label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gris-texto);
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--gris-texto);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            max-width: 500px;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            color: var(--negro);
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .hero-cta:hover {
+            opacity: 0.6;
+        }
+
+        .hero-image {
+            background-color: var(--gris-claro);
+            border-radius: 8px;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Sección Filosofía */
+        .filosofia {
+            background-color: var(--gris-claro);
+            padding: 6rem 2rem;
+        }
+
+        .filosofia-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .filosofia h2 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .filosofia-texto {
+            padding-top: 1rem;
+        }
+
+        .filosofia-texto p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--gris-texto);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Categorías */
+        .categorias {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .section-header a {
+            color: var(--negro);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            font-weight: 600;
+        }
+
+        .categorias-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .categoria-card {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .categoria-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .categoria-img {
+            background-color: var(--gris-claro);
+            border-radius: 8px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .categoria-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .categoria-card p {
+            color: var(--gris-texto);
+            font-size: 0.95rem;
+        }
+
+        /* Productos Destacados */
+        .productos {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem 6rem;
+        }
+
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .producto-card {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .producto-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .producto-img {
+            background-color: var(--gris-claro);
+            border-radius: 8px;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .producto-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--negro);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .producto-categoria {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--gris-texto);
+            margin-bottom: 0.5rem;
+        }
+
+        .producto-nombre {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .producto-precio {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .producto-iva {
+            font-size: 0.85rem;
+            color: var(--gris-texto);
+        }
+
+        /* Ventajas */
+        .ventajas {
+            background-color: var(--negro);
+            color: var(--blanco);
+            padding: 6rem 2rem;
+        }
+
+        .ventajas-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .ventajas h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 4rem;
+            letter-spacing: -1px;
+        }
+
+        .ventajas-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+        }
+
+        .ventaja-item h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .ventaja-item p {
+            color: #999;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--blanco);
+            border-top: 1px solid var(--gris-medio);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h4 {
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .footer-brand p {
+            color: var(--gris-texto);
+            line-height: 1.8;
+            max-width: 300px;
+        }
+
+        .footer-section h5 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: var(--gris-texto);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--negro);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gris-medio);
+            display: flex;
+            justify-content: space-between;
+            color: var(--gris-texto);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .filosofia-container {
+                grid-template-columns: 1fr;
+            }
+
+            .categorias-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .productos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .ventajas-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+            }
+
+            .header-container {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .search-bar {
+                order: 3;
+                margin: 0;
+                max-width: 100%;
+                flex-basis: 100%;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .filosofia h2 {
+                font-size: 2.5rem;
+            }
+
+            .categorias-grid,
+            .productos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra Superior -->
+    <div class="top-bar">
+        <span class="top-bar-logo active">ProHoreca</span>
+        <span class="top-bar-logo">ProBarman</span>
+        <span class="top-bar-logo">ProIngredients</span>
+        <span class="top-bar-logo">ProLab</span>
+        <span class="lang-selector">ES ▾</span>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">ProHoreca</a>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Búsqueda en catálogo">
+                <button>🔍</button>
+            </div>
+            <nav>
+                <a href="#productos">Productos</a>
+                <a href="#categorias">Catálogo</a>
+                <a href="#">Shop</a>
+                <a href="#">Blog</a>
+                <a href="#">Nosotros</a>
+                <a href="#">Contacto</a>
+            </nav>
+            <div class="cart-icon" onclick="verCarrito()">
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-label">NUEVO</div>
+            <h1>Proveedor Único para tu Cocina</h1>
+            <p>Maquinaria, utensilios, ingredientes y packaging. Todo en un solo pedido, una sola factura, máxima eficiencia.</p>
+            <a href="#productos" class="hero-cta">Quiero uno</a>
+        </div>
+        <div class="hero-image">
+            🍳
+        </div>
+    </section>
+
+    <!-- Filosofía -->
+    <section class="filosofia">
+        <div class="filosofia-container">
+            <h2>Unifica · Simplifica · Optimiza</h2>
+            <div class="filosofia-texto">
+                <p>En <strong>ProHoreca</strong> centralizamos todo lo que tu negocio necesita en un solo proveedor. Olvídate de gestionar múltiples facturas, envíos y contactos.</p>
+                <p>Te ofrecemos un catálogo curado de productos profesionales, asesoramiento técnico especializado y un servicio logístico coordinado que ahorra tiempo y reduce costes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorías -->
+    <section class="categorias" id="categorias">
+        <div class="section-header">
+            <h2>Categorías</h2>
+            <a href="#">Ver todo →</a>
+        </div>
+        <div class="categorias-grid">
+            <div class="categoria-card" onclick="filtrarCategoria('maquinaria')">
+                <div class="categoria-img"></div>
+                <h3>Maquinaria</h3>
+                <p>Equipamiento profesional de última generación</p>
+            </div>
+            <div class="categoria-card" onclick="filtrarCategoria('utensilios')">
+                <div class="categoria-img">🔪</div>
+                <h3>Utensilios</h3>
+                <p>Herramientas de precisión para chefs</p>
+            </div>
+            <div class="categoria-card" onclick="filtrarCategoria('ingredientes')">
+                <div class="categoria-img">🥘</div>
+                <h3>Ingredientes</h3>
+                <p>Productos gourmet seleccionados</p>
+            </div>
+            <div class="categoria-card" onclick="filtrarCategoria('packaging')">
+                <div class="categoria-img">📦</div>
+                <h3>Packaging</h3>
+                <p>Soluciones de envasado profesional</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos -->
+    <section class="productos" id="productos">
+        <div class="section-header">
+            <h2>Productos Destacados</h2>
+            <a href="#">Ver catálogo completo →</a>
+        </div>
+        <div class="productos-grid" id="productosGrid">
+            <!-- Producto 1 -->
+            <div class="producto-card" data-categoria="maquinaria" data-nombre="Sous Vide Professional SV-2000">
+                <div class="producto-img">
+                    <span class="producto-badge">Nuevo</span>
+                    🍳
+                </div>
+                <div class="producto-categoria">Maquinaria</div>
+                <h3 class="producto-nombre">Sous Vide Professional SV-2000</h3>
+                <div class="producto-precio">459,00 €</div>
+                <div class="producto-iva">IVA no incluido</div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="producto-card" data-categoria="utensilios" data-nombre="Set Cuchillos Japoneses Premium">
+                <div class="producto-img">
+                    <span class="producto-badge">Top Ventas</span>
+                    🔪
+                </div>
+                <div class="producto-categoria">Utensilios</div>
+                <h3 class="producto-nombre">Set Cuchillos Japoneses Premium</h3>
+                <div class="producto-precio">289,00 €</div>
+                <div class="producto-iva">IVA no incluido</div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="producto-card" data-categoria="packaging" data-nombre="Packaging Biodegradable 500ml">
+                <div class="producto-img">
+                    📦
+                </div>
+                <div class="producto-categoria">Packaging</div>
+                <h3 class="producto-nombre">Packaging Biodegradable 500ml</h3>
+                <div class="producto-precio">45,00 €</div>
+                <div class="producto-iva">IVA no incluido</div>
+            </div>
+
+            <!-- Producto 4 -->
+            <div class="producto-card" data-categoria="ingredientes" data-nombre="Aceite de Oliva Virgen Extra 5L">
+                <div class="producto-img">
+                    <span class="producto-badge">Top Ventas</span>
+                    🫒
+                </div>
+                <div class="producto-categoria">Ingredientes</div>
+                <h3 class="producto-nombre">Aceite de Oliva Virgen Extra 5L</h3>
+                <div class="producto-precio">67,50 €</div>
+                <div class="producto-iva">IVA no incluido</div>
+            </div>
+
+            <!-- Producto 5 -->
+            <div class="producto-card" data-categoria="maquinaria" data-nombre="Horno Combinado Digital 6 GN">
+                <div class="producto-img">
+                    🔥
+                </div>
+                <div class="producto-categoria">Maquinaria</div>
+                <h3 class="producto-nombre">Horno Combinado Digital 6 GN</h3>
+                <div class="producto-precio">3.450,00 €</div>
+                <div class="producto-iva">IVA no incluido</div>
+            </div>
+
+            <!-- Producto 6 -->
+            <div class="producto-card" data-categoria="utensilios" data-nombre="Báscula Digital Precisión 0.1g">
+                <div class="producto-img">
+                    ⚖️
+                </div>
+                <div class="producto-categoria">Utensilios</div>
+                <h3 class="producto-nombre">Báscula Digital Precisión 0.1g</h3>
+                <div class="producto-precio">89,00 €</div>
+                <div class="producto-iva">IVA no incluido</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ventajas -->
+    <section class="ventajas">
+        <div class="ventajas-container">
+            <h2>Por qué elegirnos</h2>
+            <div class="ventajas-grid">
+                <div class="ventaja-item">
+                    <h3>Un solo pedido</h3>
+                    <p>Centraliza todas tus compras en una sola plataforma. Olvídate de gestionar múltiples proveedores y simplifica tu operativa diaria.</p>
+                </div>
+                <div class="ventaja-item">
+                    <h3>Envío coordinado</h3>
+                    <p>Recibe todos tus productos en una sola entrega, optimizando tiempos y reduciendo costes logísticos para tu negocio.</p>
+                </div>
+                <div class="ventaja-item">
+                    <h3>Facturación unificada</h3>
+                    <p>Una única factura mensual para todos tus productos. Simplifica tu contabilidad y ahorra tiempo en gestión administrativa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h4>ProHoreca</h4>
+                <p>Tu proveedor único de confianza para el sector de la hostelería. Calidad profesional, servicio excepcional.</p>
+            </div>
+            <div class="footer-section">
+                <h5>Categorías</h5>
+                <ul>
+                    <li><a href="#">Maquinaria</a></li>
+                    <li><a href="#">Utensilios</a></li>
+                    <li><a href="#">Ingredientes</a></li>
+                    <li><a href="#">Packaging</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h5>Empresa</h5>
+                <ul>
+                    <li><a href="#">Sobre nosotros</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Trabaja con nosotros</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h5>Ayuda</h5>
+                <ul>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                    <li><a href="#">Envíos y devoluciones</a></li>
+                    <li><a href="#">Condiciones generales</a></li>
+                    <li><a href="#">Política de privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 ProHoreca. Todos los derechos reservados.</span>
+            <span>Diseñado para profesionales</span>
+        </div>
+    </footer>
+
+    <script>
+        // Carrito
+        let carrito = [];
+        
+        document.querySelectorAll('.producto-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const nombre = this.getAttribute('data-nombre');
+                carrito.push(nombre);
+                actualizarContadorCarrito();
+                
+                // Feedback visual
+                const img = this.querySelector('.producto-img');
+                img.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    img.style.transform = 'scale(1)';
+                }, 200);
+            });
+        });
+        
+        function actualizarContadorCarrito() {
+            const contador = document.getElementById('cartCount');
+            contador.textContent = carrito.length;
+        }
+        
+        function verCarrito() {
+            if (carrito.length === 0) {
+                alert('Tu carrito está vacío');
+            } else {
+                alert(`Productos en el carrito (${carrito.length}):\n\n${[...new Set(carrito)].join('\n')}`);
+            }
+        }
+        
+        // Buscador
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const productos = document.querySelectorAll('.producto-card');
+            
+            productos.forEach(producto => {
+                const nombre = producto.getAttribute('data-nombre').toLowerCase();
+                const categoria = producto.getAttribute('data-categoria').toLowerCase();
+                
+                if (nombre.includes(searchTerm) || categoria.includes(searchTerm)) {
+                    producto.style.display = 'block';
+                } else {
+                    producto.style.display = 'none';
+                }
+            });
+        });
+        
+        // Filtrar por categoría
+        function filtrarCategoria(categoria) {
+            const productos = document.querySelectorAll('.producto-card');
+            
+            productos.forEach(producto => {
+                const prodCategoria = producto.getAttribute('data-categoria');
+                
+                if (prodCategoria === categoria) {
+                    producto.style.display = 'block';
+                } else {
+                    producto.style.display = 'none';
+                }
+            });
+            
+            document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
